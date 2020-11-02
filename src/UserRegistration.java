@@ -7,7 +7,7 @@ public class UserRegistration {
 	public static final String NAME_PATTERN = "^[A-Z][a-z]{2,}$";
 	public static final String EMAIL_PATTERN = "^[0-9a-zA-Z]+([._+-][0-9A-Za-z]+)*@[0-9A-Za-z]+[.][a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?$";
 	public static final String MOBILE_PATTERN = "^[0-9]{1,2}[ ][0-9]{10}$";
-	public static final String PASSWORD_PATTERN = "^(?=.*[A-Z])(?=.*[a-z]).{8,}$";
+	public static final String PASSWORD_PATTERN = "^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,}$";
 	
 	public void inputFirstName() {
 		while(true) {
@@ -69,7 +69,7 @@ public class UserRegistration {
 				break;
 			}
 			else {
-				System.out.println("Password is Invalid. Enter minimum 8 characters, atleast one upper case.");
+				System.out.println("Password is Invalid. Enter minimum 8 characters, atleast one upper case, atleast one numeric number.");
 			}
 		}
 	}
