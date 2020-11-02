@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class UserRegistration {
@@ -79,15 +81,32 @@ public class UserRegistration {
 	}
 	
 	public boolean checkEmail(String email) {
-		return(email.matches(EMAIL_PATTERN));
+		return (email.matches(EMAIL_PATTERN));
 	}
 	
 	public boolean checkMobile(String mobile) {
-		return(mobile.matches(MOBILE_PATTERN));
+		return (mobile.matches(MOBILE_PATTERN));
 	}
 	
 	public boolean checkPassword(String password) {
-		return(password.matches(PASSWORD_PATTERN));
+		return (password.matches(PASSWORD_PATTERN));
+	}
+	
+	public void validateSampleEmail() {
+		List<String> emails = new ArrayList<String>();
+		emails.add("abc@yahoo.com");
+		emails.add("abc-100@yahoo.com");
+		emails.add("abc.100@yahoo.com");
+		emails.add("abc111@abc.com");
+		emails.add("abc-100@abc.net");
+		emails.add("abc.100@abc.com.au");
+		emails.add("abc@1.com");
+		emails.add("abc@gmail.com.com");
+		emails.add("abc+100@gmail.com");
+		
+		for(String email : emails) {
+			System.out.println(email + ": " + checkEmail(email));
+		}
 	}
 	
 	public void getUser() {
@@ -101,5 +120,6 @@ public class UserRegistration {
 	public static void main(String[] args) {	
 		UserRegistration userRegistration = new UserRegistration();
 		userRegistration.getUser();
+		userRegistration.validateSampleEmail();
 	}
 }
