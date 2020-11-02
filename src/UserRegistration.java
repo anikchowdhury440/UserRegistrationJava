@@ -6,6 +6,7 @@ public class UserRegistration {
 	
 	public static final String NAME_PATTERN = "^[A-Z][a-z]{2,}$";
 	public static final String EMAIL_PATTERN = "^[0-9a-zA-Z]+([._+-][0-9A-Za-z]+)*@[0-9A-Za-z]+[.][a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?$";
+	public static final String MOBILE_PATTERN = "^[0-9]{1,2}[ ][0-9]{10}$";
 	
 	public void inputFirstName() {
 		while(true) {
@@ -46,6 +47,19 @@ public class UserRegistration {
 		}
 	}
 	
+	public void inputMobile( ) {
+		while(true) {
+			System.out.println("Enter Your Mobile Number: ");
+			String mobile = scanner.nextLine();
+			if (checkMobile(mobile) == true) {
+				break;
+			}
+			else {
+				System.out.println("Mobile Number is Invalid. Country code followed by space and 10 digit number");
+			}
+		}
+	}
+	
 	public boolean checkName(String name) {
 		return (name.matches(NAME_PATTERN));
 	}
@@ -54,10 +68,15 @@ public class UserRegistration {
 		return(email.matches(EMAIL_PATTERN));
 	}
 	
+	public boolean checkMobile(String mobile) {
+		return(mobile.matches(MOBILE_PATTERN));
+	}
+	
 	public void getUser() {
 		inputFirstName();
 		inputLastName();
 		inputEmail();
+		inputMobile();
 	}
 
 	public static void main(String[] args) {	
